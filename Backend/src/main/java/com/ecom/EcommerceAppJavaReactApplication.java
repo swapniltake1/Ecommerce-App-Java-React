@@ -8,6 +8,7 @@ public class EcommerceAppJavaReactApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EcommerceAppJavaReactApplication.class, args);
+		System.out.println("Application Started...");
 	}
 
 }
