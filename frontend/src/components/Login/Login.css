@@ -1,0 +1,25 @@
+.login-bg {
+    background-image: url('https://t3.ftcdn.net/jpg/02/41/43/18/360_F_241431868_8DFQpCcmpEPVG0UvopdztOAd4a6Rqsoo.jpg'); /* Set your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+    background-color: rgba(255, 255, 255, 0.212); /* Add a semi-transparent white background */
+    padding: 4px;
+    border-radius: 2px;
+  }
+  
+  .login-form {
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
