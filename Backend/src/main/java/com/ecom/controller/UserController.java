@@ -31,12 +31,17 @@ public class UserController {
 		} else {
 			return new ResponseEntity<String>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-
-	
-
-	@PostMapping("/add")
-	public ResponseEntity<String> addUserLogin(@RequestParam String email, @RequestParam String password){
-		userService.validateLogin(email,password);
-		return new ResponseEntity<String>(userService.addUserLogin(login), HttpStatus.CREATED);
-}
 	}
+	
+	// http://localhost:8080/techhub/validateuser
+	@PostMapping("/validateuser")
+	public ResponseEntity<User> userLogin(@RequestParam String email, @RequestParam String password) {
+	    User validatedUser = userService.validateLogin(email, password);
+
+	    if (validatedUser != null) {
+	        return new ResponseEntity<User>(validatedUser, HttpStatus.OK);
+	    } else {
+	        return new ResponseEntity<User>(HttpStatus.NOT_ACCEPTABLE);
+	    }
+	}
+}

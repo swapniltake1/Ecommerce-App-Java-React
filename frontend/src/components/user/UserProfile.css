@@ -1,0 +1,14 @@
+.user-profile-container {
+    background-color: #99eff7;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .user-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+  }
+  
+  

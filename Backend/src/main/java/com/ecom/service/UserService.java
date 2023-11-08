@@ -17,10 +17,19 @@ public class UserService {
 		return savedUser;
 	}
 
-	public void validateLogin(String email, String password) {
-		User user = userRepository.findByEmail(email);
-		String oldPassword = user.getPassword();
+	public User validateLogin(String email, String newPassword) {
+	    User user = userRepository.findByEmail(email);
+	    String oldPassword = user.getPassword();
+	    
+	    if (oldPassword.equals(newPassword)) {
+	        return user;
+	    } else {
+	        return null; 
+	    }
+	}
+
+		
 		
  	}
 
-}
+

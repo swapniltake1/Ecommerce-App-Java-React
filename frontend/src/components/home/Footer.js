@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-4">
             <h5>About Us</h5>
-            <p>Your eCommerce Site is your one-stop shop for all your shopping needs.</p>
+            <p>our ShoppingHub is your one-stop shop for all your shopping needs.</p>
           </div>
           <div className="col-lg-4">
             <h5>Quick Links</h5>
@@ -19,13 +19,15 @@ const Footer = () => {
           </div>
           <div className="col-lg-4">
             <h5>Contact Us</h5>
-            <p>Email: contact@yourwebsite.com</p>
-            <p>Phone: +1 (123) 456-7890</p>
+            <p>Email: takeswapnil8@gmail.com</p>
+            <p>Email: onkarrameshlondhe@gmail.com</p>
+            <p>Phone: +91 8600789879</p>
+            <p>Phone: onkar add your phone</p>
           </div>
         </div>
       </div>
       <div className="bg-primary text-center py-2">
-        &copy; {new Date().getFullYear()} Your eCommerce Site
+        &copy; {new Date().getFullYear()} All rights reserved by Swapnil & Onkar | we develop what u need ❤️💻
       </div>
     </footer>
   );
