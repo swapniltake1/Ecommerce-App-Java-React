@@ -11,8 +11,13 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+<<<<<<< HEAD
+        <Route path="/signup" element={<Signup />} />  
+        // add another pages to router
+=======
         <Route path="/signup" element={<Signup />} />
         <Route path="/Login" element={<Login />}/>
+>>>>>>> a58a372c57a33e1821ea63c4d6bc368ca32c4199
       </Routes>
     </Router>
   );
