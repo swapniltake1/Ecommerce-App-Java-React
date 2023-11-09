@@ -15,6 +15,7 @@ const Footer = () => {
               <li><a href="/home">Home</a></li>
               <li><a href="/products">Products</a></li>
               <li><a href="/contact">Contact</a></li>
+              <li><a href="/shoppinghub/admin/addproduct">admin</a></li>
             </ul>
           </div>
           <div className="col-lg-4">

@@ -50,7 +50,7 @@ const Login = () => {
     <div className="login-bg">
       <Container className="login-container">
         <Row>
-          <Col md={{ size: 6, offset: 3 }}>
+          <Col md={{ size: 12, offset: 12 }}>
             <Form className="login-form" onSubmit={handleLogin}>
               <h2 className="mb-4">Login to Your Account</h2>
               {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
@@ -75,9 +75,11 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </FormGroup>
+              <div className='text-center'>
               <Button type="submit" color="primary" className="btn-lg btn-block">
                 Login
               </Button>
+              </div>
             </Form>
           </Col>
         </Row>

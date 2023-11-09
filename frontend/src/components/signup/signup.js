@@ -48,7 +48,7 @@ const Registration = () => {
     <div className="login-bg">
       <Container className="login-container">
         <Row>
-          <Col md={{ size: 6, offset: 3 }}>
+          <Col md={{ size: 12, offset: 12 }}>
             <Form className="login-form" onSubmit={handleRegistration}>
               <h2 className="mb-4">Register an Account</h2>
               {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
@@ -103,7 +103,9 @@ const Registration = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </FormGroup>
+              <div className='text-center'>
               <Button color="primary" className="btn-lg btn-block" type="submit">Register</Button> {/* Add type="submit" */}
+              </div>
             </Form>
           </Col>
         </Row>

@@ -1,5 +1,6 @@
 package com.ecom.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ecom.entity.Product;
 import com.ecom.service.ProductService;
@@ -25,20 +29,31 @@ public class ProductController {
 
 	@Autowired
 	ProductService productService;
-
+	
 	@PostMapping("/addproduct")
-	public ResponseEntity<String> addProduct(@RequestBody Product product) {
+	public ResponseEntity<String> uploadFiles(@RequestParam("productName") String productName,
+	                                          @RequestParam("productPrice") String productPrice,
+	                                          @RequestParam("productDiscount") String productDiscount,
+	                                          @RequestParam("productDescription") String productDescription,
+	                                          @RequestPart("productPhoto") MultipartFile productPhoto) throws IOException {
 
-		Product addProduct = productService.addProduct(product);
+	    Product product = new Product();
+	    product.setProductName(productName);
+	    product.setProductPrice(productPrice);
+	    product.setProductDiscount(productDiscount);
+	    product.setProductDescription(productDescription);
+	    product.setProductPhoto(productPhoto.getBytes());
 
-		if (addProduct != null) {
-			return new ResponseEntity<String>("Product added Successfully", HttpStatus.CREATED);
-		} else {
-			return new ResponseEntity<String>("Internal Server Error", HttpStatus.BAD_REQUEST);
-		}
+	    Product addProduct = productService.addProduct(product);
+	    if (addProduct != null) {
+	        return new ResponseEntity<>("Product added Successfully", HttpStatus.CREATED);
+	    } else {
+	        return new ResponseEntity<>("Internal Server Error", HttpStatus.BAD_REQUEST);
+	    }
 	}
 
-	@GetMapping("/getproduct")
+
+	@GetMapping("/getallproduct")
 	public ResponseEntity<List<Product>> getProduct() {
 		List<Product> getProduct = productService.getProduct();
 		if (getProduct != null) {
