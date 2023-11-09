@@ -11,25 +11,21 @@ public class UserService {
 
 	@Autowired
 	private UserRepo userRepository;
-	
+
 	public User saveUser(User user) {
 		User savedUser = userRepository.save(user);
 		return savedUser;
 	}
 
 	public User validateLogin(String email, String newPassword) {
-	    User user = userRepository.findByEmail(email);
-	    String oldPassword = user.getPassword();
-	    
-	    if (oldPassword.equals(newPassword)) {
-	        return user;
-	    } else {
-	        return null; 
-	    }
+		User user = userRepository.findByEmail(email);
+		String oldPassword = user.getPassword();
+
+		if (oldPassword.equals(newPassword)) {
+			return user;
+		} else {
+			return null;
+		}
 	}
 
-		
-		
- 	}
-
-
+}
