@@ -13,7 +13,7 @@ import com.ecom.entity.User;
 import com.ecom.service.UserService;
 
 @RestController
-@RequestMapping("/techhub")
+@RequestMapping("/shoppinghub")
 @CrossOrigin
 public class UserController {
 
@@ -32,16 +32,16 @@ public class UserController {
 			return new ResponseEntity<String>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
 	// http://localhost:8080/techhub/validateuser
 	@PostMapping("/validateuser")
 	public ResponseEntity<User> userLogin(@RequestParam String email, @RequestParam String password) {
-	    User validatedUser = userService.validateLogin(email, password);
+		User validatedUser = userService.validateLogin(email, password);
 
-	    if (validatedUser != null) {
-	        return new ResponseEntity<User>(validatedUser, HttpStatus.OK);
-	    } else {
-	        return new ResponseEntity<User>(HttpStatus.NOT_ACCEPTABLE);
-	    }
+		if (validatedUser != null) {
+			return new ResponseEntity<User>(validatedUser, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<User>(HttpStatus.NOT_ACCEPTABLE);
+		}
 	}
 }
