@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/shoppinghub/validateuser', null, {
+      const response = await axios.post('http://localhost:8081/shoppinghub/validateuser', null, {
         params: {
           email: email,
           password: password,

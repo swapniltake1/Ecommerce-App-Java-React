@@ -31,7 +31,7 @@ const ProductForm = () => {
     formDataToSend.append('productPhoto', formData.productPhoto);
 
     try {
-        const response = await axios.post('http://localhost:8080/shoppinghub/addproduct', formDataToSend, {
+        const response = await axios.post('http://localhost:8081/shoppinghub/addproduct', formDataToSend, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

@@ -2,6 +2,7 @@ package com.ecom.entity;
 
 import java.math.BigDecimal;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class Product {
     private BigDecimal productDiscount;
     private String productDescription;
 
-    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String productPhoto;
 
     @ManyToOne
