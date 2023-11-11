@@ -28,7 +28,7 @@ const Registration = () => {
       password: password,
     };
   
-    axios.post('http://localhost:8080/shoppinghub/createuser', data)
+    axios.post('http://localhost:8081/shoppinghub/createuser', data)
       .then(response => {
         if (response.status === 200) {
           console.log(response);

@@ -7,7 +7,7 @@ const CartPage = ({ userId }) => {
   useEffect(() => {
     const fetchUserCart = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/shoppinghub/${userId}/cart`);
+        const response = await fetch(`http://localhost:8081/shoppinghub/${userId}/cart`);
         const data = await response.json();
         setUserCart(data);
       } catch (error) {
