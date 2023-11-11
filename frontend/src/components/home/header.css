@@ -18,13 +18,14 @@
     background-color: #007bff;
     border-color: #007bff;
     color: white;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    margin-top: 5px;
+    
   }
   
   .search-bar {
     border-radius: 20px;
     padding: 8px;
+   margin-top: 3px;
   }
   
   .text-center {

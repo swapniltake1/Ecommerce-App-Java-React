@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.ecom.entity.User;
 import com.ecom.service.UserService;
 
@@ -44,4 +47,20 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.NOT_ACCEPTABLE);
 		}
 	}
-}
+	
+	// http://localhost:8080/shoppinghub/{userId}/cart
+	@GetMapping("/{userId}/cart")
+    public ResponseEntity<User> getUserCart(@PathVariable(required = false) int userId) {
+		
+		
+		User userById = userService.getUserById(userId);
+		
+		System.out.println(userById);
+		
+	    return new ResponseEntity<User>(userById, HttpStatus.OK);
+			
+	
+	}
+	
+	}
+

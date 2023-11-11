@@ -11,7 +11,7 @@ const Login = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [failMessage, setFailMessage] = useState('');
  
-  const { setUserName, setUserEmail, setUserPhone, setUserPassword } = useContext(UserContext);
+  const { setUserId, setUserName, setUserEmail, setUserPhone, setUserPassword } = useContext(UserContext);
 
 
 
@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/techhub/validateuser', null, {
+      const response = await axios.post('http://localhost:8080/shoppinghub/validateuser', null, {
         params: {
           email: email,
           password: password,
@@ -28,6 +28,7 @@ const Login = () => {
       });
   
       if (response.status === 200) {
+        setUserId(response.data.id);
         setUserName(response.data.name);
           setUserEmail(response.data.email);
           setUserPhone(response.data.phone);

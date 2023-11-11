@@ -8,8 +8,10 @@ import UserProfile from './components/user/UserProfile'; // Correct the import s
 import UserContext from './components/user/UserContext';
 import AddProduct from './components/products/AddProduct';
 import SeeAllProducts from './components/products/SeeAllProducts'; // Correct the component name
+import CartPage from './components/user/CartPage';
 
 const App = () => {
+  const [userId , setUserId] = useState('');
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPhone, setUserPhone] = useState('');
@@ -19,6 +21,8 @@ const App = () => {
     <Router>
       <UserContext.Provider
         value={{
+          userId,
+          setUserId,
           userName,
           setUserName,
           userEmail,
@@ -36,7 +40,9 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/shoppinghub/admin/addproduct" element={<AddProduct />} />
-          <Route path="/seeallproduct" element={<SeeAllProducts />} /> {/* Correct the component name */}
+          <Route path="/seeallproduct" element={<SeeAllProducts />} /> 
+          <Route path="/cart/:userId"  element={<CartPage />} />
+          
         </Routes>
       </UserContext.Provider>
     </Router>

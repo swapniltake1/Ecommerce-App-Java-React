@@ -13,7 +13,8 @@ const ProductCard = ({ product }) => {
       <div className="card-body">
         <h5 className="card-title">{product.productName}</h5>
         <p className="card-text">{product.productDescription}</p>
-        <p className="card-text">Product ID: {product.productId}</p>
+        <p className="card-text">{product.productDiscount+"% Off"} </p>
+        <p className="card-text">Price: {product.productPrice}</p>
         <a href="#" className="btn btn-primary">
           Buy Now
         </a>

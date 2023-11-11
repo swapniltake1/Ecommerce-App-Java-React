@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Navbar, Nav, InputGroup, Input, Button, InputGroupText } from 'reactstrap';
 import { FaShoppingBag, FaSearch } from 'react-icons/fa';
 import UserContext from '../user/UserContext';
@@ -8,10 +8,11 @@ import './header.css';
 const Header = () => {
   const { userName, setUserName } = useContext(UserContext);
   const navigate = useNavigate();
+  const { userId } = useParams();
 
   const handleLogout = () => {
     setUserName('');
-    navigate('/'); // Redirect to the homepage after logout
+    navigate('/');
   };
 
   return (
@@ -21,13 +22,18 @@ const Header = () => {
         <span style={{ color: 'white', cursor: 'pointer' }}>ShoppingHub</span>
       </div>
       <InputGroup style={{ width: '400px' }}>
-        <Input type="text" placeholder="Search product" className="search-bar text-center" style={{ fontSize: '14px' }} / >
-        <InputGroupText addonType="append">
-          <Button className='btn-searchbar'>
+        <Input
+          type="text"
+          placeholder="Search product"
+          className="search-bar text-center"
+          style={{ fontSize: '14px' }}
+        />
+        {/* <InputGroupText addonType="append">
+          <Button className="btn-searchbar">
             <FaSearch style={{ color: 'black' }} />
-          </Button>
-        </InputGroupText>
-      </InputGroup>
+          </Button> 
+        </InputGroupText>  */}
+      </InputGroup> 
       <Nav className="ml-auto">
         {userName ? (
           <>
@@ -37,8 +43,13 @@ const Header = () => {
               </Link>
             </Nav>
             <Nav>
+              <Link to={`/cart/${userId}`} className="nav-link" style={{ color: 'white' }}>
+                Show Cart
+              </Link>
+            </Nav>
+            <Nav>
               <Button color="link" onClick={handleLogout} style={{ color: 'white' }}>
-                log Out
+                Log Out
               </Button>
             </Nav>
           </>

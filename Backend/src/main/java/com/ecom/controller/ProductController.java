@@ -1,6 +1,8 @@
 package com.ecom.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import com.ecom.entity.Product;
 import com.ecom.service.ProductService;
 
@@ -37,14 +38,24 @@ public class ProductController {
 	                                          @RequestParam("productDescription") String productDescription,
 	                                          @RequestPart("productPhoto") MultipartFile productPhoto) throws IOException {
 
+	    // Parse the string values to BigDecimal
+	    BigDecimal parsedProductPrice = new BigDecimal(productPrice);
+	    BigDecimal parsedProductDiscount = new BigDecimal(productDiscount);
+
+	    // Convert image bytes to base64-encoded string
+	    String base64EncodedPhoto = Base64.getEncoder().encodeToString(productPhoto.getBytes());
+
+	    // Create the Product object
 	    Product product = new Product();
 	    product.setProductName(productName);
-	    product.setProductPrice(productPrice);
-	    product.setProductDiscount(productDiscount);
+	    product.setProductPrice(parsedProductPrice);
+	    product.setProductDiscount(parsedProductDiscount);
 	    product.setProductDescription(productDescription);
-	    product.setProductPhoto(productPhoto.getBytes());
+	    product.setProductPhoto(base64EncodedPhoto); 
 
+	    // Call the service method to add the product
 	    Product addProduct = productService.addProduct(product);
+
 	    if (addProduct != null) {
 	        return new ResponseEntity<>("Product added Successfully", HttpStatus.CREATED);
 	    } else {
