@@ -15,7 +15,8 @@ public class DealsService {
 	@Autowired
 	ProductRepo productRepo;
 
-	public List<Product> discount(BigDecimal discountValue) {
+	// get product with diffrent discounnt price
+	public List<Product> getDiscountedProducts(BigDecimal discountValue) {
 		List<Product> findAllByDiscount = productRepo.findAllByProductDiscount(discountValue);
 		System.out.println(findAllByDiscount);
 		return findAllByDiscount;

@@ -31,6 +31,7 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 	
+	// http://localhost:8081/shoppinghub/addproduct
 	@PostMapping("/addproduct")
 	public ResponseEntity<String> uploadFiles(@RequestParam("productName") String productName,
 	                                          @RequestParam("productPrice") String productPrice,
@@ -64,6 +65,7 @@ public class ProductController {
 	}
 
 
+	// http://localhost:8081/shoppinghub/getallproduct
 	@GetMapping("/getallproduct")
 	public ResponseEntity<List<Product>> getProduct() {
 		List<Product> getProduct = productService.getProduct();
@@ -74,11 +76,14 @@ public class ProductController {
 		}
 	}
 
+	
+	// not tested 
 	@DeleteMapping("/deleteproduct/{productId}")
 	public boolean deleteProductById(@PathVariable int productId) {
 		return productService.deleteProductById(productId);
 	}
 
+	// not tested
 	@PutMapping("/updateproduct")
 	public Product updateProduct(@RequestBody Product product) {
 		return productService.updateProduct(product);

@@ -25,7 +25,7 @@ public class ProductService {
 	}
 
 	public boolean deleteProductById(int productId) {
-		productRepo.deleteById(productId);
+		productRepo.deleteById((long) productId);
 		return true;
 	}
 

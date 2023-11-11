@@ -1,0 +1,25 @@
+/* DynamicText.css */
+.text-container {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 0%;
+  
+}
+
+.dynamic-text {
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  animation:  20s linear infinite;
+  text-align: center;
+ 
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

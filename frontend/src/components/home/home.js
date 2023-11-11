@@ -3,44 +3,46 @@ import Header from './Header';
 import Footer from './Footer';
 import { Card, Button, Container, Row, Col, Carousel } from 'react-bootstrap';
 import SeeAllProducts from '../products/SeeAllProducts';
-import '../home/home.css';
+import './home.css';
+import DynamicText from '../Dynamic/DynamicText';
 
 const Home = () => {
   const [showAllProducts, setShowAllProducts] = useState(false);
   return (
     <div>
       <Header />
+      <DynamicText />
       <Container className="my-5">
 
-        <Row className="mb-4">
+        <Row className="mb-4 adv-img">
           <Col>
             <Carousel>
-              <Carousel.Item>
+            <Carousel.Item>
                 <img
-                  className="d-block w-100 carousel-image"
-                  src="https://picsum.photos/800/200?random=1"
+                  className=" carousel-image"
+                  src="https://m.media-amazon.com/images/I/61CiqVTRBEL._SX3000_.jpg"
                   alt="First slide"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
-                  className="d-block w-100 carousel-image"
-                  src="https://picsum.photos/800/200?random=2"
+                  className=" carousel-image"
+                  src="https://m.media-amazon.com/images/I/71Ie3JXGfVL._SX3000_.jpg"
+                  alt="First slide"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className=" carousel-image"
+                  src="https://m.media-amazon.com/images/I/71cvRGs+pPL._SX3000_.jpg"
                   alt="Second slide"
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
-                  className="d-block w-100 carousel-image"
-                  src="https://picsum.photos/800/200?random=3"
+                  className=" carousel-image"
+                  src="https://m.media-amazon.com/images/I/61zAjw4bqPL._SX3000_.jpg"
                   alt="Third slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100 carousel-image"
-                  src="https://picsum.photos/800/200?random=4"
-                  alt="Fourth slide"
                 />
               </Carousel.Item>
             </Carousel>
@@ -108,9 +110,9 @@ const Home = () => {
               <Col>
                 <Card className="text-center">
                   <Card.Body>
-                    <Card.Title>80% Off</Card.Title>
+                    <Card.Title>Electronics</Card.Title>
                     <Card.Text>
-                      Get up to 80% off on selected items. Limited time offer!
+                    Smartphones, laptops,smartwatches, and other electronic gadgets.
                     </Card.Text>
                     <Button variant="primary">Shop Now</Button>
                   </Card.Body>
@@ -119,9 +121,9 @@ const Home = () => {
               <Col>
                 <Card className="text-center">
                   <Card.Body>
-                    <Card.Title>70% Off</Card.Title>
+                    <Card.Title>Fashion</Card.Title>
                     <Card.Text>
-                      Get up to 70% off on selected items. Limited time offer!
+                    Men's and women's clothing, shoes, accessories, and jewelry
                     </Card.Text>
                     <Button variant="primary">Shop Now</Button>
                   </Card.Body>
@@ -130,9 +132,9 @@ const Home = () => {
               <Col>
                 <Card className="text-center">
                   <Card.Body>
-                    <Card.Title>60% Off</Card.Title>
+                    <Card.Title>Home and Living</Card.Title>
                     <Card.Text>
-                      Get up to 60% off on selected items. Limited time offer!
+                    Furniture, home decor, bedding, kitchenware, and appliances.
                     </Card.Text>
                     <Button variant="primary">Shop Now</Button>
                   </Card.Body>
@@ -141,9 +143,9 @@ const Home = () => {
               <Col>
                 <Card className="text-center">
                   <Card.Body>
-                    <Card.Title>50% Off</Card.Title>
+                    <Card.Title>Health and Beauty</Card.Title>
                     <Card.Text>
-                      Get up to 50% off on selected items. Limited time offer!
+                    Skincare products, cosmetics, haircare items, vitamins, and fitness equipment
                     </Card.Text>
                     <Button variant="primary">Shop Now</Button>
                   </Card.Body>

@@ -23,7 +23,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	// http://localhost:8080/techhub/createuser
+	// http://localhost:8081/shoppinghub/createuser
 	@PostMapping("/createuser")
 	public ResponseEntity<String> createUser(@RequestBody User user) {
 
@@ -36,7 +36,7 @@ public class UserController {
 		}
 	}
 
-	// http://localhost:8080/techhub/validateuser
+	// http://localhost:8081/shoppinghub/validateuser
 	@PostMapping("/validateuser")
 	public ResponseEntity<User> userLogin(@RequestParam String email, @RequestParam String password) {
 		User validatedUser = userService.validateLogin(email, password);
@@ -48,7 +48,7 @@ public class UserController {
 		}
 	}
 	
-	// http://localhost:8080/shoppinghub/{userId}/cart
+	// http://localhost:8081/shoppinghub/{userId}/cart
 	@GetMapping("/{userId}/cart")
     public ResponseEntity<User> getUserCart(@PathVariable(required = false) int userId) {
 		
