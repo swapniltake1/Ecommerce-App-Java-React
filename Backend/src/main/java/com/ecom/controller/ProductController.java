@@ -33,9 +33,10 @@ public class ProductController {
 	
 	// http://localhost:8081/shoppinghub/addproduct
 	@PostMapping("/addproduct")
-	public ResponseEntity<String> uploadFiles(@RequestParam("productName") String productName,
+	public ResponseEntity<Product> uploadFiles(@RequestParam("productName") String productName,
 	                                          @RequestParam("productPrice") String productPrice,
 	                                          @RequestParam("productDiscount") String productDiscount,
+	                                          @RequestParam("productCategory") String productCategory,
 	                                          @RequestParam("productDescription") String productDescription,
 	                                          @RequestPart("productPhoto") MultipartFile productPhoto) throws IOException {
 
@@ -51,16 +52,17 @@ public class ProductController {
 	    product.setProductName(productName);
 	    product.setProductPrice(parsedProductPrice);
 	    product.setProductDiscount(parsedProductDiscount);
+	    product.setProductCategory(productCategory);
 	    product.setProductDescription(productDescription);
 	    product.setProductPhoto(base64EncodedPhoto); 
 
 	    // Call the service method to add the product
-	    Product addProduct = productService.addProduct(product);
+	    Product addedProduct = productService.addProduct(product);
 
-	    if (addProduct != null) {
-	        return new ResponseEntity<>("Product added Successfully", HttpStatus.CREATED);
+	    if (addedProduct != null) {
+	        return new ResponseEntity<Product>(addedProduct, HttpStatus.CREATED);
 	    } else {
-	        return new ResponseEntity<>("Internal Server Error", HttpStatus.BAD_REQUEST);
+	        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	    }
 	}
 
@@ -88,5 +90,14 @@ public class ProductController {
 	public Product updateProduct(@RequestBody Product product) {
 		return productService.updateProduct(product);
 	}
-
+	
+	// http://localhost:8081/shoppinghub/searchproducts
+	// ok testing working fine
+	@GetMapping("/searchproducts")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam String searchTerm) {
+        List<Product> matchingProducts = productService.findOrdersByTerm(searchTerm);
+        return ResponseEntity.ok(matchingProducts);
+    }
 }
+
+

@@ -9,6 +9,7 @@ import UserContext from './components/user/UserContext';
 import AddProduct from './components/products/AddProduct';
 import SeeAllProducts from './components/products/SeeAllProducts'; // Correct the component name
 import CartPage from './components/user/CartPage';
+import OrdersPage from './components/Dynamic/SearchedOrders';
 
 const App = () => {
   const [userId , setUserId] = useState('');
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/shoppinghub/admin/addproduct" element={<AddProduct />} />
           <Route path="/seeallproduct" element={<SeeAllProducts />} /> 
           <Route path="/cart/:userId"  element={<CartPage />} />
+          <Route path="/SearchedOrders" element={<OrdersPage  />} />
           
         </Routes>
       </UserContext.Provider>

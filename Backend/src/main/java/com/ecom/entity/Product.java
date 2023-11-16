@@ -28,6 +28,7 @@ public class Product {
     private BigDecimal productPrice;
     private BigDecimal productDiscount;
     private String productDescription;
+    private String productCategory;
 
     @Column(columnDefinition = "LONGTEXT")
     private String productPhoto;

@@ -3,13 +3,13 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('https://source.unsplash.com/random') no-repeat center center fixed;
+    background: url('https://s3.envato.com/files/285748911/IMG_8069.jpg') no-repeat center center fixed;
     background-size: cover;
   }
   
   .product-form {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 40px;
+    padding: 15px;
     border-radius: 10px;
   }
   

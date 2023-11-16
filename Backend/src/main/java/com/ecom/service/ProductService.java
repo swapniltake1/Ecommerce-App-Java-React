@@ -33,4 +33,10 @@ public class ProductService {
 		return productRepo.save(product);
 	}
 
+	// find order with search
+	public List<Product> findOrdersByTerm(String searchTerm) {
+		
+		return productRepo.findByProductName(searchTerm);
+	}
+
 }

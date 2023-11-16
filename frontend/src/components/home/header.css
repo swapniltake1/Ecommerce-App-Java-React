@@ -1,34 +1,55 @@
 .header {
-    padding: 10px 0;
-    background-color: #3e3e3e;
-  }
-  
-  
-  
-  .search-bar::placeholder {
-    color: #e88b00;
-  }
-  
-  .search-bar:focus {
-    box-shadow: rgb(252, 207, 231);
-    border-color: #ced4da;
-  }
+  padding: 5px 0;
+  background-color: #3e3e3e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .btn-searchbar {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: white;
-    margin-top: 5px;
-    
-  }
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.shopping-bag-icon {
+  margin-right: 10px;
+  color: white;
+}
+
+.brand-name {
+  color: white;
+  cursor: pointer;
+}
+
+.search-bar {
+  width: 400px;
+
   
-  .search-bar {
-    border-radius: 20px;
-    padding: 8px;
-   margin-top: 3px;
+}
+
+.search-bar input {
+  border-radius: 20px;
+}
+
+.btn-searchbar {
+  background-color: #393939;
+  color: white;
+  border-radius: 20px;
+  &:hover {
+    background-color: #ff5252;
   }
-  
-  .text-center {
-    text-align: center;
-  }
-  
+}
+
+.nav-link {
+  color: white !important;
+  margin-right: 15px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  text-decoration-color: #ff5252;
+}
+
+.text-center {
+  text-align: center;
+}
