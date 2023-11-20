@@ -19,10 +19,10 @@ import com.ecom.service.DealsService;
 @RequestMapping("/shoppinghub")
 @CrossOrigin
 public class DealsController {
- 
+
 	@Autowired
 	DealsService dealsService;
-	
+
 	// http://localhost:8081/shoppinghub/discount/60
 	@GetMapping("/discount/{discountvalue}")
 	public ResponseEntity<List<Product>> discount(@PathVariable String discountvalue) {
@@ -38,14 +38,21 @@ public class DealsController {
 	    } catch (NumberFormatException e) {
 	        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	    }
-	    
-	    
+	}
+	@GetMapping("/category/{productCategory}")
+	public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String productCategory) {
+	    try {
+	        List<Product> products = dealsService.getProductCategory(productCategory);
+
+	        if (products != null && !products.isEmpty()) {
+	            return new ResponseEntity<>(products, HttpStatus.OK);
+	        } else {
+	            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	        }
+	    } catch (Exception e) {
+	        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
 	}
 
-
-		
-		
-		
-		
-	}	
-
+	
+}

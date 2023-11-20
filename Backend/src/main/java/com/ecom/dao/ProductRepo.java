@@ -16,6 +16,10 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
 	@Query("SELECT p FROM Product p WHERE p.productDiscount = :discount")
     List<Product> findAllByProductDiscount(@Param("discount") BigDecimal discount);
 
+	@Query("SELECT p FROM Product p WHERE p.productCategory = :productCategory")
+    List<Product> findAllByProductCategory(@Param("productCategory") String productCategory);
+
+	
 	List<Product> findByProductName(String searchTerm);
 
 }
