@@ -10,6 +10,7 @@ import AddProduct from './components/products/AddProduct';
 import SeeAllProducts from './components/products/SeeAllProducts'; // Correct the component name
 import CartPage from './components/user/CartPage';
 import OrdersPage from './components/Dynamic/SearchedOrders';
+import DiscountProducts from './components/Dynamic/discountProduct';
 
 const App = () => {
   const [userId , setUserId] = useState('');
@@ -44,7 +45,7 @@ const App = () => {
           <Route path="/seeallproduct" element={<SeeAllProducts />} /> 
           <Route path="/cart/:userId"  element={<CartPage />} />
           <Route path="/SearchedOrders" element={<OrdersPage  />} />
-          
+          <Route path="/discount/{discountvalue}" element={<DiscountProducts />} />
         </Routes>
       </UserContext.Provider>
     </Router>

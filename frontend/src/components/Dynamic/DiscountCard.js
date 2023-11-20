@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const DiscountCard = ({ title, discount }) => (
   <Col>
@@ -9,7 +10,10 @@ const DiscountCard = ({ title, discount }) => (
         <Card.Text>
           {`Get up to ${discount}% off on selected items. Limited time offer!`}
         </Card.Text>
+        <break></break>
+        <Link to={`/discount?discount=${discount}`}>
         <Button variant="primary">Shop Now</Button>
+        </Link>
       </Card.Body>
     </Card>
   </Col>
