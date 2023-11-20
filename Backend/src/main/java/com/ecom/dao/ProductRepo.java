@@ -12,6 +12,7 @@ import com.ecom.entity.Product;
 
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Long> {
+	
 	@Query("SELECT p FROM Product p WHERE p.productDiscount = :discount")
     List<Product> findAllByProductDiscount(@Param("discount") BigDecimal discount);
 
