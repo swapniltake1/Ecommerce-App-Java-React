@@ -31,6 +31,11 @@ public class ProductController {
 	@Autowired
 	ProductService productService;
 	
+	
+	// Add a controller to get product with productID
+	
+	
+	
 	// http://localhost:8081/shoppinghub/addproduct
 	@PostMapping("/addproduct")
 	public ResponseEntity<Product> uploadFiles(@RequestParam("productName") String productName,

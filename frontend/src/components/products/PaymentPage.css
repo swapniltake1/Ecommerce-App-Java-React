@@ -1,0 +1,16 @@
+/* PaymentPage.css */
+.payment-container {
+    margin-top: 30px;
+  }
+  
+  .order-details {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .user-information {
+    border: 1px solid #ccc;
+    padding: 15px;
+  }
+  

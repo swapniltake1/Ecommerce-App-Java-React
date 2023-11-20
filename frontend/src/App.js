@@ -11,6 +11,8 @@ import SeeAllProducts from './components/products/SeeAllProducts'; // Correct th
 import CartPage from './components/user/CartPage';
 import OrdersPage from './components/Dynamic/SearchedOrders';
 import DiscountProducts from './components/Dynamic/discountProduct';
+import PaymentPage from './components/products/PaymentPage';
+
 
 const App = () => {
   const [userId , setUserId] = useState('');
@@ -47,6 +49,8 @@ const App = () => {
           <Route path="/SearchedOrders" element={<OrdersPage  />} />
           <Route path="/discount" element={<DiscountProducts />} />
 
+          <Route path="/payment" element={<PaymentPage />} />
+        
         </Routes>
       </UserContext.Provider>
     </Router>

@@ -1,23 +1,53 @@
-import React, { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './SeeAllProducts.css';
+import BuyButton from '../Dynamic/BuyButton'; 
 
 const ProductCard = ({ product }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClose = () => setShowModal(false);
+  const handleShow = () => setShowModal(true);
+
   return (
     <div className="card mb-3" style={{ maxWidth: '18rem' }}>
       <img
         src={`data:image/jpeg;base64,${product.productPhoto}`}
         alt={product.productName}
         className="card-img-top"
+        onClick={handleShow}
       />
       <div className="card-body">
-        <h5 className="card-title">{product.productName}</h5>
+        <h5 className="card-title" onClick={handleShow}>
+          {product.productName}
+        </h5>
         <p className="card-text">{product.productDescription}</p>
-        <p className="card-text">{product.productDiscount+"% Off"} </p>
+        <p className="card-text">{product.productDiscount}% Off</p>
         <p className="card-text">Price: {product.productPrice}</p>
-        <a href="#" className="btn btn-primary">
-          Buy Now
-        </a>
+
+        <Modal show={showModal} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title >{product.productName}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className='text-center'>
+            <img
+              src={`data:image/jpeg;base64,${product.productPhoto}`}
+              alt={product.productName}
+              style={{ maxWidth: '100%', height: 'auto' }}
+            />
+
+            <p>Description: {product.productDescription}</p>
+            <p>{product.productDiscount}% Off</p>
+            <p>Price: {product.productPrice}</p>
+          </Modal.Body>
+          <Modal.Footer>
+          <BuyButton orderId={product.productId} />
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </div>
   );
