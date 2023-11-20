@@ -10,9 +10,8 @@ const DiscountCard = ({ title, discount }) => (
         <Card.Text>
           {`Get up to ${discount}% off on selected items. Limited time offer!`}
         </Card.Text>
-        <break></break>
         <Link to={`/discount?discount=${discount}`}>
-        <Button variant="primary">Shop Now</Button>
+          <Button variant="primary">Shop Now</Button>
         </Link>
       </Card.Body>
     </Card>
@@ -25,6 +24,7 @@ const DiscountSection = () => (
     <DiscountCard title="70% Off" discount={70} />
     <DiscountCard title="60% Off" discount={60} />
     <DiscountCard title="50% Off" discount={50} />
+    {/* Add more DiscountCard components with different discount values as needed */}
   </Row>
 );
 

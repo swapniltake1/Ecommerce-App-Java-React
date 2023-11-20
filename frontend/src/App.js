@@ -45,7 +45,8 @@ const App = () => {
           <Route path="/seeallproduct" element={<SeeAllProducts />} /> 
           <Route path="/cart/:userId"  element={<CartPage />} />
           <Route path="/SearchedOrders" element={<OrdersPage  />} />
-          <Route path="/discount/{discountvalue}" element={<DiscountProducts />} />
+          <Route path="/discount" element={<DiscountProducts />} />
+
         </Routes>
       </UserContext.Provider>
     </Router>

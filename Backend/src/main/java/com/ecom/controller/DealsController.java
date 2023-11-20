@@ -25,15 +25,23 @@ public class DealsController {
 	
 	// http://localhost:8081/shoppinghub/discount/60
 	@GetMapping("/discount/{discountvalue}")
-	public ResponseEntity<List<Product>> discount(@PathVariable BigDecimal discountvalue) {
-	    List<Product> discountedProducts = dealsService.getDiscountedProducts(discountvalue);
+	public ResponseEntity<List<Product>> discount(@PathVariable String discountvalue) {
+	    try {
+	        BigDecimal discount = new BigDecimal(discountvalue);
+	        List<Product> discountedProducts = dealsService.getDiscountedProducts(discount);
 
-	    if (discountedProducts != null && !discountedProducts.isEmpty()) {
-	        return new ResponseEntity<>(discountedProducts, HttpStatus.OK);
-	    } else {
-	        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	        if (discountedProducts != null && !discountedProducts.isEmpty()) {
+	            return new ResponseEntity<>(discountedProducts, HttpStatus.OK);
+	        } else {
+	            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	        }
+	    } catch (NumberFormatException e) {
+	        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	    }
+	    
+	    
 	}
+
 
 		
 		
