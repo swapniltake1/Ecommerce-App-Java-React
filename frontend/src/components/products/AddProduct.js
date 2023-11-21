@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
 import './AddProduct.css'; // Import your CSS file
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ProductForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     productName: '',
     productPrice: '',
@@ -26,7 +27,8 @@ const ProductForm = () => {
     setFormData({ ...formData, productPhoto: e.target.files[0] });
   };
   const handleGoHome = () => {
-   Navigate("/")
+   navigate("/");
+   
   };
 
 
