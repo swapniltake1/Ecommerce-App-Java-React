@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Base64;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -82,7 +83,6 @@ public class ProductController {
 			return new ResponseEntity<List<Product>>(HttpStatus.BAD_REQUEST);
 		}
 	}
-
 	
 	// not tested 
 	@DeleteMapping("/deleteproduct/{productId}")
@@ -103,6 +103,11 @@ public class ProductController {
         List<Product> matchingProducts = productService.findOrdersByTerm(searchTerm);
         return ResponseEntity.ok(matchingProducts);
     }
+	
+	@GetMapping("/getProduct/{productId}")
+	public Optional<Product> getProductById(@PathVariable Long productId) {
+		return productService.getProductById(productId);
+	}
 }
 
 
