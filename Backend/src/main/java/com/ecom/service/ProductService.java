@@ -1,6 +1,7 @@
 package com.ecom.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +38,11 @@ public class ProductService {
 	public List<Product> findOrdersByTerm(String searchTerm) {
 		
 		return productRepo.findByProductName(searchTerm);
+	}
+
+	public Optional<Product> getProductById(Long productId) {
+		
+		return  productRepo.findById(productId);
 	}
 
 }

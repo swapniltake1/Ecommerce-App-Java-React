@@ -22,4 +22,10 @@ public interface ProductRepo extends JpaRepository<Product, Long> {
 	
 	List<Product> findByProductName(String searchTerm);
 
+
+
+
+
+
+
 }
