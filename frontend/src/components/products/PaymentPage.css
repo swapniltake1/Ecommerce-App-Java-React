@@ -1,16 +1,17 @@
-/* PaymentPage.css */
-.payment-container {
-    margin-top: 30px;
-  }
+.column-layout {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
   
-  .order-details {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-  
-  .user-information {
-    border: 1px solid #ccc;
-    padding: 15px;
-  }
-  
+}
+
+.heading{
+  margin-top: 3vw;
+  text-align: center;
+  width: 100vw; 
+  height: 5vw;  
+}
+.column {
+  padding: 0 100px;
+  box-sizing: border-box;
+}

@@ -8,7 +8,8 @@ const BuyButton = ({ orderId }) => {
 
   const fetchOrderDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:8081/orders/${orderId}`);
+      const response = await axios.get(`http://localhost:8081/shoppinghub/getProduct/${orderId}`);
+      console.log(response.data);
       setOrderDetails(response.data);
     } catch (error) {
       console.error('Error fetching order details: ', error);
@@ -16,7 +17,10 @@ const BuyButton = ({ orderId }) => {
   };
 
   const handleBuyClick = () => {
-    navigate('/payment', { orderDetails });
+    console.log("Sending data to payment page ::"+orderDetails);
+    // navigate('/payment', { orderDetails });
+    navigate('/payment', { state: { orderDetails: orderDetails } });
+
   };
 
   useEffect(() => {
