@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,4 +35,7 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "cart_id")
     private Cart cart;
+    
+    @ManyToOne
+    private OrdersDetails ordersDetails;
 }
