@@ -21,9 +21,7 @@ const Footer = () => {
           <div className="col-lg-4">
             <h5>Contact Us</h5>
             <p>Email: takeswapnil8@gmail.com</p>
-            <p>Phone: +91 8600789879</p>
             <p>Email: onkarrameshlondhe@gmail.com</p>
-            <p>Phone: +91 9370025900</p>
           </div>
         </div>
       </div>

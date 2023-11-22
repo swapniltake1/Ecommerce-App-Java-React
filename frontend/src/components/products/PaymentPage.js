@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import './PaymentPage.css'; // Import your custom CSS file for styling
+import '../home/Header';
+import '../home/Footer';
+import Header from '../home/Header';
+import Footer from '../home/Footer';
 
 const PaymentPage = () => {
   const navigate = useNavigate();
@@ -36,6 +40,8 @@ const PaymentPage = () => {
   };
 
   return (
+    <>
+    <Header/>
     <Container className='text-center'>
       <div className='heading'>
       <h1>Confirm your Order</h1>
@@ -77,6 +83,7 @@ const PaymentPage = () => {
                 color='primary'
                 type='submit'
               > Proceed To Payment </Button>
+              
             </Form>
           </div>
         </div>
@@ -84,6 +91,8 @@ const PaymentPage = () => {
         <p>No product details available.</p>
       )}
     </Container>
+    <Footer/>
+    </>
   );
 };
 

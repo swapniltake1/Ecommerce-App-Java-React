@@ -2,11 +2,12 @@
   display: flex;
   justify-content: center;
   width: fit-content;
+  height: 30vw;
   
 }
 
 .heading{
-  margin-top: 3vw;
+  margin-top: 1vw;
   text-align: center;
   width: 100vw; 
   height: 5vw;  
