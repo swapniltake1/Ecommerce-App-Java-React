@@ -14,6 +14,7 @@ import DiscountProducts from './components/Dynamic/discountProduct';
 import PaymentPage from './components/products/PaymentPage';
 import ProductCategory from './components/Dynamic/ProductCategory';
 import PaymentOptions from './components/products/PaymentOptions';
+import Dopayment from './components/products/dopayment';
  
 
 const App = () => {
@@ -53,6 +54,8 @@ const App = () => {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/category" element={<ProductCategory />} />
           <Route path="payment/proceed-payment" element={<PaymentOptions />} />
+          <Route path="payment/proceed-payment/dopayment" element={<Dopayment />} />
+
 
 
 

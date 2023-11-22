@@ -13,6 +13,7 @@ import Header from '../home/Header';
 import Footer from '../home/Footer';
 
 const PaymentOptions = ({ orderDetails, userAddress }) => {
+  console.log(orderDetails, userAddress);
   const navigate = useNavigate();
   const paymentOptions = [
     { name: 'Google Pay', image: googlePayImage },
@@ -26,24 +27,22 @@ const PaymentOptions = ({ orderDetails, userAddress }) => {
   ];
 
   const handleCardClick = (method) => {
-    let methodname=method.name;
-
-    navigate('dopayment',{orderDetails, userAddress, methodname})
-          
-  }    
+    console.log('Clicked Method:', method);
+    let methodname = method.name;
+    navigate('dopayment', { orderDetails, userAddress, methodname });
+  };
 
   return (
     <>
       <Header />
       <Container>
-        {/* Your component JSX */}
         <h1 className="mt-4 mb-4">Select Your Payment Option</h1>
         <Row xs="1" sm="2" md="3" lg="4">
           {paymentOptions.map((method, index) => (
             <Col key={index}>
               <Card className="mb-3" onClick={() => handleCardClick(method)}>
                 <CardImg top width="100%" src={method.image} alt={method.name} />
-                <CardBody onClick={() => handleCardClick(method)}>
+                <CardBody>
                   <CardTitle tag="h5">{method.name}</CardTitle>
                   <CardText>Click to pay</CardText>
                 </CardBody>

@@ -1,10 +1,10 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-
-const PaymentOptions = ({ orderDetails, userAddress, methodname }) => {
+const Dopayment = ({ orderDetails, userAddress, methodname }) => {
   const navigate = useNavigate();
 
-
-const handleSuccess = async (method) => {
+  const handleSuccess = async () => {
     const apiUrl = 'YOUR_BACKEND_API_URL_HERE'; // Replace with your Spring Boot API endpoint
 
     try {
@@ -22,19 +22,24 @@ const handleSuccess = async (method) => {
 
       if (response.ok) {
         console.log('Data sent successfully to the server!');
-        navigate('/home');
+        navigate('/success'); // Redirect to a success page
       } else {
         console.error('Failed to send data to the server');
+        navigate('/home'); // Redirect to the home page or another appropriate page for failure
       }
     } catch (error) {
       console.error('Error occurred while sending data:', error);
+      navigate('/home'); // Redirect to the home page or another appropriate page for failure
     }
   };
 
-  const handleFail=() =>{
-    navigate('/home');
-  }
+  return (
+    <div>
+      <h1>Payment Status</h1>
+      <button onClick={handleSuccess}>Success</button>
+      <button onClick={() => navigate('/home')}>Fail</button>
+    </div>
+  );
+};
 
-
-
-  // return(     button for success and fail. if button success then save data to backend. fail = redirect homme) button 
+export default Dopayment;
