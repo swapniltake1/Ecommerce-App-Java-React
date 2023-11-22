@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import './PaymentPage.css'; // Import your custom CSS file for styling
+import './PaymentPage.css'; 
 import '../home/Header';
 import '../home/Footer';
 import Header from '../home/Header';
@@ -16,7 +16,7 @@ const PaymentPage = () => {
     street: '',
     city: '',
     state: '',
-    country: '',
+    country: 'India',
     pincode: '',
   });
 
@@ -33,7 +33,7 @@ const PaymentPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('proceed-payment', { orderDetails, userAddress });
+    navigate('proceed-payment', { state: { orderDetails, userAddress } });
     console.log("Submit")
 
     

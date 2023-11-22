@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap'; // Import necessary components from reactstrap
-import {  useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import googlePayImage from '../images/googlePayImage.png'; // Import images for payment options
 import phonePayImage from '../images/phonepay.png';
 import paytmImage from '../images/paytm.png';
@@ -12,7 +12,10 @@ import emi from '../images/emi.jpg';
 import Header from '../home/Header';
 import Footer from '../home/Footer';
 
-const PaymentOptions = ({ orderDetails, userAddress }) => {
+const PaymentOptions = () => {
+  const location = useLocation();
+  const orderDetails = location.state ? location.state.orderDetails : null;
+  const userAddress = location.state ? location.state.userAddress : null;
   console.log(orderDetails, userAddress);
   const navigate = useNavigate();
   const paymentOptions = [
@@ -29,7 +32,7 @@ const PaymentOptions = ({ orderDetails, userAddress }) => {
   const handleCardClick = (method) => {
     console.log('Clicked Method:', method);
     let methodname = method.name;
-    navigate('dopayment', { orderDetails, userAddress, methodname });
+    navigate('dopayment', { state: {orderDetails, userAddress, methodname }});
   };
 
   return (
