@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext  } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import UserContext from '../user/UserContext';
 
 const BuyButton = ({ orderId }) => {
   const navigate = useNavigate();
   const [orderDetails, setOrderDetails] = useState({});
+  const { userId } = useContext(UserContext);
 
   const fetchOrderDetails = async () => {
     try {
@@ -17,10 +19,14 @@ const BuyButton = ({ orderId }) => {
   };
 
   const handleBuyClick = () => {
+    if (!userId || userId === '') {
+      // Redirect to login if user is not logged in
+      navigate('/login');}
+      else{     
     console.log("Sending data to payment page ::"+orderDetails);
-    // navigate('/payment', { orderDetails });
+    
     navigate('/payment', { state: { orderDetails: orderDetails } });
-
+      }
   };
 
   useEffect(() => {

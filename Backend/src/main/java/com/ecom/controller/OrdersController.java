@@ -44,7 +44,9 @@ public class OrdersController {
 	    OrderEntity savedOrder = ordersService.saveOrderDetails(order); 
 	    
 	    if (savedOrder != null && savedOrder.getOrderId() > 0) {
+	    	System.out.println(" Order created succesfully....");
 	        return ResponseEntity.ok(savedOrder); 
+	        
 	    } else {
 	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to save order");
 	        

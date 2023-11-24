@@ -63,7 +63,7 @@ const Header = () => {
         {userName ? (
           <>
             <Nav>
-              <Link to="/profile" className="nav-link">
+              <Link to="/user/profile" className="nav-link">
                 Welcome, {userName}
               </Link>
             </Nav>

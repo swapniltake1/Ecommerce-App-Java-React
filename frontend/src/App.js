@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, Fragment , useEffect  } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate  } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/home/home';
 import Signup from './components/signup/signup';
@@ -15,14 +15,16 @@ import PaymentPage from './components/products/PaymentPage';
 import ProductCategory from './components/Dynamic/ProductCategory';
 import PaymentOptions from './components/products/PaymentOptions';
 import Dopayment from './components/products/dopayment';
- 
+
+
 
 const App = () => {
-  const [userId , setUserId] = useState('');
+  const [userId, setUserId] = useState('');
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPhone, setUserPhone] = useState('');
   const [userPassword, setUserPassword] = useState('');
+
 
   return (
     <Router>
@@ -40,29 +42,29 @@ const App = () => {
           setUserPassword
         }}
       >
+
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<UserProfile />} />
-          <Route path="/shoppinghub/admin/addproduct" element={<AddProduct />} />
-          <Route path="/seeallproduct" element={<SeeAllProducts />} /> 
-          <Route path="/cart/:userId"  element={<CartPage />} />
-          <Route path="/SearchedOrders" element={<OrdersPage  />} />
-          <Route path="/discount" element={<DiscountProducts />} />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/category" element={<ProductCategory />} />
-          <Route path="payment/proceed-payment" element={<PaymentOptions />} />
-          <Route path="payment/proceed-payment/dopayment" element={<Dopayment />} />
-
-
-
-
+          <>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="user/profile" element={<UserProfile />} />
+      <Route path="/shoppinghub/admin/addproduct" element={<AddProduct />} />
+            <Route path="/seeallproduct" element={<SeeAllProducts />} />
+            <Route path="/cart/:userId" element={<CartPage />} />
+            <Route path="/SearchedOrders" element={<OrdersPage />} />
+            <Route path="/discount" element={<DiscountProducts />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/category" element={<ProductCategory />} />
+            <Route path="/payment/proceed-payment" element={<PaymentOptions />} />
+            <Route path="/payment/proceed-payment/dopayment" element={<Dopayment />} />
+            </>
         </Routes>
       </UserContext.Provider>
     </Router>
   );
 };
+
 
 export default App;
