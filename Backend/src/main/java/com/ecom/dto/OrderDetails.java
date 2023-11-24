@@ -1,4 +1,4 @@
-package com.ecom.entity;
+package com.ecom.dto;
 
 import java.math.BigDecimal;
 
@@ -7,8 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,12 +15,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class OrderDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //private Long SerialProductId;
+    
     private Long productId;
-
     private String productName;
     private BigDecimal productPrice;
     private BigDecimal productDiscount;
@@ -31,12 +30,5 @@ public class Product {
 
     @Column(columnDefinition = "LONGTEXT")
     private String productPhoto;
-
-    @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
-    
-	/*
-	 * @ManyToOne private OrdersDetails ordersDetails;
-	 */
 }
+

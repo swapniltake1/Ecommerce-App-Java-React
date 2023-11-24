@@ -31,8 +31,8 @@ const PaymentOptions = () => {
 
   const handleCardClick = (method) => {
     console.log('Clicked Method:', method);
-    let methodname = method.name;
-    navigate('dopayment', { state: {orderDetails, userAddress, methodname }});
+    let methodName = method.name;
+    navigate('dopayment', { state: {orderDetails, userAddress, methodName }});
   };
 
   return (

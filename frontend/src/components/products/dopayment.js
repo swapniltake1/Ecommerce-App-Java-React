@@ -1,16 +1,32 @@
-import React from 'react';
+import {React, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import  UserContext from '../user/UserContext';
+
 
 const Dopayment = () => {
   const location = useLocation();
   const orderDetails = location.state ? location.state.orderDetails : null;
   const userAddress = location.state ? location.state.userAddress : null;
-  const methodname = location.state ? location.state.methodname : null;
-  console.log(orderDetails, userAddress);
+  const methodName = location.state ? location.state.methodName : null;
+
+  const { userId, userName, userEmail, userPhone, userPassword } = useContext(UserContext);
+
+  const purchasedUserId = userId;
+  const purchasedUserName = userName;
+  const purchasedUserEmail = userEmail;
+  const purchasedUserPhone = userPhone;
+  // const savedUserPassword = userPassword;
+
+  console.log(orderDetails, userAddress, methodName, purchasedUserId, purchasedUserName, purchasedUserPhone, purchasedUserEmail);
+
+  
+
+  
+
   const navigate = useNavigate();
 
   const handleSuccess = async () => {
-    const apiUrl = 'YOUR_BACKEND_API_URL_HERE'; // Replace with your Spring Boot API endpoint
+    const apiUrl = 'http://localhost:8081/shoppinghub/order/create'; // http://localhost:8081/shoppinghub/order/create
 
     try {
       const response = await fetch(apiUrl, {
@@ -21,20 +37,25 @@ const Dopayment = () => {
         body: JSON.stringify({
           orderDetails,
           userAddress,
-          methodname,
+          methodName,
+          purchasedUserId,
+          purchasedUserName,
+          purchasedUserPhone,
+          purchasedUserEmail
+
         }),
       });
 
       if (response.ok) {
         console.log('Data sent successfully to the server!');
-        navigate('/success'); // Redirect to a success page
+        navigate('/success'); 
       } else {
         console.error('Failed to send data to the server');
-        navigate('/home'); // Redirect to the home page or another appropriate page for failure
+        navigate('/home'); 
       }
     } catch (error) {
       console.error('Error occurred while sending data:', error);
-      navigate('/home'); // Redirect to the home page or another appropriate page for failure
+      navigate('/home'); 
     }
   };
 
@@ -51,7 +72,7 @@ const Dopayment = () => {
     </div>
     <div>
       <h2>Payment Method Name:</h2>
-      <pre>{methodname}</pre>
+      <pre>{methodName}</pre>
     </div>
     <div>
       <h1>Payment Status</h1>
