@@ -17,6 +17,7 @@ const Home = () => {
     <>
       <div>
         <Header />
+
         <DynamicText />
 
         <Container className="my-5">

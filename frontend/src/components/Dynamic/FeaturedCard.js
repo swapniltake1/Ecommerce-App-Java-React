@@ -26,7 +26,7 @@ const FeaturedProductsSection = () => (
         <FeaturedCard title="Electronics" description="Smartphones, laptops, smartwatches, and other electronic gadgets." category="electronics" />
         <FeaturedCard title="Fashion" description="Men's and women's clothing, shoes, accessories, and jewelry." category="fashion" />
         <FeaturedCard title="Home and Living" description="Furniture, home decor, bedding, kitchenware, and appliances." category="home and living" />
-        <FeaturedCard title="Health and Beauty" description="Skincare products, cosmetics, haircare items, vitamins, and fitness equipment." category="health and beauty" />
+        <FeaturedCard title="Health and Beauty" description="Skincare products, cosmetics, haircare items, vitamins, and other" category="health and beauty" />
   </Row>
       </Col>
   </Row>

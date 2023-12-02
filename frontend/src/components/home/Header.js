@@ -40,6 +40,7 @@ const Header = () => {
   
 
   return (
+    <>
     <Navbar className="header">
       <div className="brand">
         <FaShoppingBag className="shopping-bag-icon" />
@@ -94,6 +95,8 @@ const Header = () => {
         )}
       </Nav>
     </Navbar>
+   
+    </>
   );
 };
 
