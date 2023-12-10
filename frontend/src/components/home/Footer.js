@@ -1,32 +1,29 @@
 import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark text-light">
-      <div className="container py-4">
+    <footer>
+      <div className="container">
         <div className="row">
-        <div className="col-lg-4">
-            <h5>Quick Links</h5>
-            <ul className="list-unstyled">
-              <li><a href="/">Home</a></li>
-              <li><a href="/">Products</a></li>
-              <li><a href="/">Contact</a></li>
-              <li><a href="/shoppinghub/admin/addproduct">admin</a></li>
-            </ul>
-          </div>
-          <div className="col-lg-4">
+          
+          <div className="col2 about-content">
             <h5>About Us</h5>
-            <p>our ShoppingHub is your one-stop shop for all your shopping needs.</p>
-          </div>
-          <div className="col-lg-4">
-            <h5>Contact Us</h5>
-            <p>Email: takeswapnil8@gmail.com</p>
-            <p>Email: onkarrameshlondhe@gmail.com</p>
+            <p>We're ShoppingHub, here to change how you shop. Our website offers carefully chosen products that are great value and quality. We aim to make shopping easy and enjoyable, always keeping you in mind. Explore our site for the latest, coolest, and trustworthy items.</p>
           </div>
         </div>
+        <div className="col1">
+            <h5>Quick Links</h5>
+            <ul className="list-unstyled">
+              <li><a href="/seeallproduct">See All Products</a></li>
+              <li><a href="/developer/contact">Contact to Developers</a></li>
+              <li><a href="/shoppinghub/admin/addproduct">Add your products </a></li>
+            </ul>
+          </div>
       </div>
-      <div className=" text-center py-2">
-        &copy; {new Date().getFullYear()} All rights reserved by Swapnil & Onkar | we develop what u need ❤️💻
+
+      <div className="text-center footer-copyright">
+        &copy; {new Date().getFullYear()} ShoppingHub. All rights reserved.
       </div>
     </footer>
   );

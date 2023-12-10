@@ -1,5 +1,5 @@
-import React, { useState, Fragment , useEffect  } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate  } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/home/home';
 import Signup from './components/signup/signup';
@@ -15,6 +15,10 @@ import PaymentPage from './components/products/PaymentPage';
 import ProductCategory from './components/Dynamic/ProductCategory';
 import PaymentOptions from './components/products/PaymentOptions';
 import Dopayment from './components/products/dopayment';
+import Success from './components/orders/Success';
+import Fail from './components/orders/Fail';
+import Error from './components/orders/Error';
+import Contact from './components/Developer/Contact';
 
 
 
@@ -45,12 +49,15 @@ const App = () => {
 
         <Routes>
           <>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="user/profile" element={<UserProfile />} />
-      <Route path="/shoppinghub/admin/addproduct" element={<AddProduct />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/error" element={<Error />} />
+            <Route path="/developer/contact" element={<Contact />} />
+
+            <Route path="/home" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="user/profile" element={<UserProfile />} />
+            <Route path="/shoppinghub/admin/addproduct" element={<AddProduct />} />
             <Route path="/seeallproduct" element={<SeeAllProducts />} />
             <Route path="/cart/:userId" element={<CartPage />} />
             <Route path="/SearchedOrders" element={<OrdersPage />} />
@@ -59,7 +66,9 @@ const App = () => {
             <Route path="/category" element={<ProductCategory />} />
             <Route path="/payment/proceed-payment" element={<PaymentOptions />} />
             <Route path="/payment/proceed-payment/dopayment" element={<Dopayment />} />
-            </>
+            <Route path='/payment/success' element={<Success />} />
+            <Route path='/payment/fail' element={<Fail />} />
+          </>
         </Routes>
       </UserContext.Provider>
     </Router>

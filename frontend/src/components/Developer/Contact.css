@@ -1,0 +1,41 @@
+/* Contact.css */
+
+.contact-container {
+    margin-top: 80px;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  
+  .personal-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .info-item {
+    margin-bottom: 15px;
+  }
+  
+  .info-label {
+    font-weight: bold;
+  }
+  
+  .info-value {
+    margin-top: 5px;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-container {
+      padding: 10px; 
+      margin-top: 50px; 
+    }
+  
+    .personal-info {
+      max-width: 90%; 
+    }
+  }

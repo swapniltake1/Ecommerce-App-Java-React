@@ -82,7 +82,7 @@ public class ProductController {
 	// not tested 
 	@DeleteMapping("/deleteproduct/{productId}")
 	public boolean deleteProductById(@PathVariable int productId) {
-		return productService.deleteProductById(productId);
+		return productService.deleteProductById((long) productId);
 	}
 
 	// not tested

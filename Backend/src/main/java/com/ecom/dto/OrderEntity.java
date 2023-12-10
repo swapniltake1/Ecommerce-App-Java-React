@@ -19,7 +19,7 @@ public class OrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderId;
 
-    @OneToOne
+    @Embedded
     private OrderDetails orderDetails;
 
     @Embedded

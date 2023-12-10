@@ -1,18 +1,18 @@
+/* header.css */
+
 .header {
-  padding: 5px 0;
-  background-color: #3e3e3e;
+  padding: 10px 20px;
+  background-color: #333;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
 }
 
 .brand {
   display: flex;
   align-items: center;
+  color: white;
+  text-decoration: none;
 }
 
 .shopping-bag-icon {
@@ -23,37 +23,73 @@
 .brand-name {
   color: white;
   cursor: pointer;
+  text-decoration: none;
+  font-size: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .search-bar {
-  width: 400px;
-
-  
+  flex: 1;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
 }
 
 .search-bar input {
-  border-radius: 20px;
+  margin-top: 4px;
+  flex: 1;
+  height: 40px;
+  font-size: 14px;
+  border: none;
 }
 
 .btn-searchbar {
+  height: 40px;
+  border-radius: 0 20px 20px 0;
   background-color: #393939;
   color: white;
-  border-radius: 20px;
-  &:hover {
-    background-color: #ff5252;
-  }
+  border: none;
+  padding: 0 15px;
+}
+
+.btn-searchbar:hover {
+  background-color: #ff5252;
+}
+
+.user-options {
+  display: flex;
+  align-items: center;
+}
+
+.welcome-message {
+  margin-right: 10px;
+  color: white;
 }
 
 .nav-link {
-  color: white !important;
+  color: white;
   margin-right: 15px;
 }
 
 .nav-link:hover {
   text-decoration: underline;
-  text-decoration-color: #ff5252;
+  color: #ff5252;
 }
 
-.text-center {
-  text-align: center;
+
+
+@media screen and (max-width: 768px) {
+  .brand-name {
+    font-size: 24px;
+  }
+
+  .search-bar{
+    width: fit-content;
+  }
+
+  .btn-searchbar {
+    height: 41px;
+  }
 }
+
+

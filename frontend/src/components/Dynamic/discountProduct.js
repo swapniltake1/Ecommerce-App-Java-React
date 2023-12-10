@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap'; // Import necessary components from reactstrap
 import { useLocation } from 'react-router-dom';
+import BuyNowButton from '../Dynamic/BuyButton';
 
 const DiscountProducts = () => {
   const [products, setProducts] = useState([]);
   const location = useLocation();
 
-  // Extract discountValue from the URL whenever location.search changes
+  
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const discountValue = queryParams.get('discount');
@@ -35,7 +36,7 @@ const DiscountProducts = () => {
   const discountValue = queryParams.get('discount');
 
   return (
-    <Container>
+    <Container className='text-center'>
       <h1 className="mt-4 mb-4">{discountValue ? `${discountValue}%` : 'Discounted'} Discounted Products</h1>
       <Row xs="1" sm="2" md="3" lg="4">
         {products && products.length > 0 ? (
@@ -48,13 +49,14 @@ const DiscountProducts = () => {
                   <CardTitle tag="h5">{product.productName}</CardTitle>
                   <CardText>Discount: {product.productDiscount}%</CardText>
                   <CardText>Price: {product.productPrice}</CardText>
+                  <BuyNowButton orderId={product.productId} />
                 </CardBody>
               </Card>
             </Col>
           ))
         ) : (
           <Col>
-            <Card className="mb-3">
+            <Card className="mb-3 text-center">
               <CardBody>
                 <CardText>No discounted products available</CardText>
               </CardBody>

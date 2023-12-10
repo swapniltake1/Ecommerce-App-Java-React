@@ -1,7 +1,8 @@
 .carousel-image {
   margin: auto;
-  width: 1500px; /* Set the desired width */
-  height: 300px; /* Set the desired height */
+  width: 1600px; 
+  max-width: 100%; 
+  height: 50vh; 
   object-fit: cover;
   object-position: top;
   border-radius: 10px;
@@ -12,6 +13,18 @@
   transform: scale(1.1);
 }
 
-.my-5{
-  margin-top: auto;
+.my-5 {
+  margin-top: 5vh;
 }
+
+@media screen and (max-width: 768px) {
+  .carousel-image {
+    width: 100%; 
+    height: 30vh; 
+  }
+
+  .my-5 {
+    margin-top: 2vh; 
+  }
+}
+

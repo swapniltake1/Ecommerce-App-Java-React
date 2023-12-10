@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecom.dto.OrderEntity;
 import com.ecom.service.OrdersService;
+import com.ecom.service.ProductService;
 
 @RestController
 @CrossOrigin
@@ -19,6 +20,9 @@ public class OrdersController {
 
 	@Autowired
 	private OrdersService ordersService;
+	
+	@Autowired
+	private ProductService productService;
 	
 	/*
 	 * public ResponseEntity<String> createOrderDetails(@RequestBody OrdersDetails
@@ -45,6 +49,8 @@ public class OrdersController {
 	    
 	    if (savedOrder != null && savedOrder.getOrderId() > 0) {
 	    	System.out.println(" Order created succesfully....");
+	    	productService.deleteProductById(order.getOrderDetails().getProductId());
+	    	System.out.println("Product Deleted Successfully from database :: ProductID::"+order.getOrderDetails().getProductId());
 	        return ResponseEntity.ok(savedOrder); 
 	        
 	    } else {

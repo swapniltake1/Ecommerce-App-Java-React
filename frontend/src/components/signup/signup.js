@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import './signup.css'; // Import the CSS file for your custom styling
+import { Container, Row, Col, Form, FormGroup, Label, Input, Button, Card, CardBody } from 'reactstrap';
+import './signup.css'; 
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // navigation of page 
+import { useNavigate } from 'react-router-dom'; 
+import Header from '../home/Header';
+import Footer from '../home/Footer';
 
 const Registration = () => {
 
@@ -32,10 +34,10 @@ const Registration = () => {
       .then(response => {
         if (response.status === 200) {
           console.log(response);
-          setSuccessMessage('User created successfully');
+          setSuccessMessage('Account created successfully');
           setTimeout(() => {
-            navigate('/login');  // Use navigate to go to the login route
-          }, 2000);             // Redirect after 2 seconds 
+            navigate('/login');  
+          }, 3000);             
         }
       })
       .catch(error => {
@@ -45,14 +47,18 @@ const Registration = () => {
   };
 
   return (
-    <div className="login-bg">
-      <Container className="login-container">
-        <Row>
-          <Col md={{ size: 12, offset: 12 }}>
-            <Form className="login-form" onSubmit={handleRegistration}>
-              <h2 className="mb-4">Register an Account</h2>
+    <>
+    <Header />
+    <div className="signup-bg">
+    <Container className="signup-container">
+      <Row>
+        <Col md={{ size: 8, offset: 2 }}>
+          <Card className="signup-form">
+            <CardBody>
+              <h2>Register an Account</h2>
               {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
               {failMessage && <p style={{ color: 'red' }}>{failMessage}</p>}
+              <Form onSubmit={handleRegistration}>
               <FormGroup>
                 <Label for="name">Name</Label>
                 <Input
@@ -104,13 +110,17 @@ const Registration = () => {
                 />
               </FormGroup>
               <div className='text-center'>
-              <Button color="primary" className="btn-lg btn-block" type="submit">Register</Button> {/* Add type="submit" */}
-              </div>
-            </Form>
+                    <Button color="primary" className="btn-lg" type="submit">Register</Button>
+                  </div>
+                </Form>
+              </CardBody>
+            </Card>
           </Col>
         </Row>
       </Container>
     </div>
+    <Footer />
+    </>
   );
 };
 

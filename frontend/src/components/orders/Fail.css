@@ -1,0 +1,28 @@
+
+.fail-page {
+    background-image: url('../images/error.jpeg');
+    height: 100vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+  }
+  
+  .fail-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .fail-content h1 {
+    font-size: 2.5em;
+   
+  }
+  
+  .fail-content h2 {
+    font-size: 1.5em;
+  }
+  

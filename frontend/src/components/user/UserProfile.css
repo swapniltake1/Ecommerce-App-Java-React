@@ -1,14 +1,25 @@
 .user-profile-container {
-    background-color: #99eff7;
+  margin-top: 30px;
+    background-color: #c7edd6;
     padding: 20px;
     height: 100%;
+    align-items: center;
+    margin-left: 350px;
+    width: 800px;
   }
   
   .user-photo {
+    align-items: center;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     background-color: #c4c4c4;
+    text-align: center;
+  }
+
+  .btn{
+    margin: 4px;
+   
   }
   
   

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap'; // Import necessary components from reactstrap
 import { useLocation } from 'react-router-dom';
+import Header from '../home/Header';
+import Footer from '../home/Footer';
+import BuyNowButton from '../Dynamic/BuyButton'
 
 const ProductCategory = () => {
   const [products, setProducts] = useState([]);
@@ -37,8 +40,12 @@ const ProductCategory = () => {
   const categoryValue = queryParams.get('category');
 
   return (
-    <Container>
-      <h1 className="mt-4 mb-4">{categoryValue ? `${categoryValue} Category` : 'All Products'}</h1>
+    <>
+    <Header />  
+    <Container className='mt-5 text-center'>
+      
+    
+      <h1 className="mt-5 mb-4 text-center" style={{textAlign:'center', width:'100%'}}>{categoryValue ? `${categoryValue} Category` : 'All Products'}</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -46,13 +53,14 @@ const ProductCategory = () => {
           {products.length > 0 ? (
             products.map((product, index) => (
               <Col key={index}>
-              <Card className="mb-3">
+              <Card className="mb-3" style={{margin:'50px'}}>
                 {/* Assuming product.productPhoto is a base64 encoded image */}
                 <CardImg top width="100%" src={`data:image/jpeg;base64,${product.productPhoto}`} alt={`Product ${product.productName}`} />
                 <CardBody>
                   <CardTitle tag="h5">{product.productName}</CardTitle>
                   <CardText>Discount: {product.productDiscount}%</CardText>
                   <CardText>Price: {product.productPrice}</CardText>
+                  <BuyNowButton orderId={product.productId} />
                 </CardBody>
               </Card>
             </Col>
@@ -63,6 +71,8 @@ const ProductCategory = () => {
         </Row>
       )}
     </Container>
+    <Footer />
+    </>
   );
 };
 

@@ -1,0 +1,31 @@
+/* Success.css */
+
+/* Styles for the success page container */
+.success-page {
+    background-color: #4caf50; /* Green color or your preferred color */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+  }
+  
+  /* Styles for the success content */
+  .success-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .success-content h1 {
+    font-size: 2.5em;
+    /* Add any other styles for the main header */
+  }
+  
+  .success-content h2 {
+    font-size: 1.5em;
+    /* Add any other styles for the secondary header */
+  }
+  

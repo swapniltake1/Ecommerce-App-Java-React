@@ -4,6 +4,8 @@ import UserContext from './UserContext';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import './UserProfile.css';
+import Header from '../home/Header';
+import Footer from '../home/Footer';
 
 const UserProfile = () => {
   const {userId, userName, userEmail, userPhone, userPassword } = useContext(UserContext);
@@ -26,11 +28,12 @@ const UserProfile = () => {
   };
 
   return (
+    <>
+    <Header />
     <div className="user-profile-container">
       <div className="container mt-5">
         <div className="row justify-content-center">
-          <div className="user-photo"></div>
-          <h1>User Profile</h1>
+          <div className="user-photo text-center"></div>
           <p> UserId: {userId}</p>
           <p>Name: {userName}</p>
           <p>Email: {userEmail}</p>
@@ -49,17 +52,19 @@ const UserProfile = () => {
             </Modal.Footer>
           </Modal>
 
-          <div className="mt-3">
-            <Button variant="primary" onClick={handleShowCart}>
+          <div className="mt-3 text-center">
+            <Button className='btn' variant="primary" onClick={handleShowCart}>
               Show Cart
             </Button>
-            <Button variant="primary" onClick={handleGoHome}>
+            <Button className='btn' variant="primary" onClick={handleGoHome}>
               Go Home
             </Button>
           </div>
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   );
 };
 

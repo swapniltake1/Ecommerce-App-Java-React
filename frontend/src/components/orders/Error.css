@@ -1,0 +1,20 @@
+
+.error-page {
+
+    background-image: url('../images/error.png');
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+  }
+  
+  
+  .error-content {
+    font-size: 2em;
+   
+  }
+  

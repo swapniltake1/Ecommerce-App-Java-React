@@ -32,7 +32,13 @@ const PaymentOptions = () => {
   const handleCardClick = (method) => {
     console.log('Clicked Method:', method);
     let methodName = method.name;
-    navigate('dopayment', { state: {orderDetails, userAddress, methodName }});
+    if (methodName === 'Cash on Delivery') {
+      
+      navigate('/payment/success');
+    } else {
+      
+      navigate('/payment/proceed-payment/dopayment', { state: { orderDetails, userAddress, methodName } });
+    }
   };
 
   return (
