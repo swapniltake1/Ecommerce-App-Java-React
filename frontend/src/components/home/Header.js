@@ -53,8 +53,8 @@ const Header = () => {
       <div className="user-options">
         {userName ? (
           <>
-            <span className="welcome-message">Welcome, {userName}</span>
-            <Button color="link" onClick={handleLogout}>Log Out</Button>
+          <Link to='/user/profile' className='welcome-message' >Welcome, {userName}</Link>
+            <Button className='welcome-message'  onClick={handleLogout}>Log Out</Button>
           </>
         ) : (
           <>

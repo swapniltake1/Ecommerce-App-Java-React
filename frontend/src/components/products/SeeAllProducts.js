@@ -3,6 +3,7 @@ import { Modal, Button } from 'react-bootstrap';
 import axios from 'axios';
 import './SeeAllProducts.css';
 import BuyButton from '../Dynamic/BuyButton'; 
+import AddToCartBtn from '../Dynamic/AddToCartBtn';
 
 const ProductCard = ({ product }) => {
   const [showModal, setShowModal] = useState(false);
@@ -41,12 +42,14 @@ const ProductCard = ({ product }) => {
             <p>{product.productDiscount}% Off</p>
             <p>Price: {product.productPrice}</p>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer style={{marginRight:'100px'}}>
+          <AddToCartBtn product={product} />
           <BuyButton orderId={product.productId} />
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="secondary" onClick={handleClose} style={{padding:'10px', backgroundColor:'red'}}>
               Close
             </Button>
           </Modal.Footer>
+          
         </Modal>
       </div>
     </div>

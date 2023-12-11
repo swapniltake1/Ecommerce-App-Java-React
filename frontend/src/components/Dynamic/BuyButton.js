@@ -39,7 +39,7 @@ const BuyButton = ({ orderId }) => {
       <button
         onClick={handleBuyClick}
         style={{
-          backgroundColor: 'blue',
+          backgroundColor: 'green',
           color: 'white',
           padding: '10px',
           borderRadius: '5px',

@@ -32,9 +32,6 @@ public class Product {
     @Column(columnDefinition = "LONGTEXT")
     private String productPhoto;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id")
-    private Cart cart;
     
 	/*
 	 * @ManyToOne private OrdersDetails ordersDetails;

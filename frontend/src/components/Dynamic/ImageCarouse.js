@@ -1,7 +1,10 @@
 import React from 'react';
 import { Row, Col, Carousel } from 'react-bootstrap';
 
-const ImageCarousel = () => (
+const ImageCarousel = () => { 
+
+
+  return (
   <Row className="mb-4 adv-img">
     <Col>
       <Carousel>
@@ -36,6 +39,7 @@ const ImageCarousel = () => (
       </Carousel>
     </Col>
   </Row>
-);
+  )
+  };
 
 export default ImageCarousel;

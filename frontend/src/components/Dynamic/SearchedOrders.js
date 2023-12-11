@@ -1,10 +1,11 @@
 import {React, useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import { Container, Row, Col, Card, CardBody, CardTitle, CardText, CardImg, Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
-
+import AddToCartBtn from './AddToCartBtn';
 import Header from '../home/Header';
 import Footer from '../home/Footer';
 import BuyButton from './BuyButton';
+import './SearchedOrder.css';
 
 const OrderCard = ({ order }) => {
   const [showModal, setShowModal] = useState(false);
@@ -16,20 +17,23 @@ const OrderCard = ({ order }) => {
         <CardImg top width="100%" src={`data:image/jpeg;base64,${order.productPhoto}`} alt={`Order ${order.photo}`} />
         <CardBody>
           <CardTitle tag="h5">{order.productName}</CardTitle>
+          <CardText>{order.productDescription}</CardText>
           <CardText>Discount: {order.productDiscount}</CardText>
           <CardText>Price: {order.productPrice}</CardText>
         </CardBody>
       </Card>
-      <Modal isOpen={showModal} toggle={toggleModal} size="sm">
-        <ModalHeader toggle={toggleModal}>{order.productName}</ModalHeader>
+      <Modal isOpen={showModal} toggle={toggleModal} className='open-card'>
+        <ModalHeader toggle={toggleModal} >{order.productName}</ModalHeader>
         <ModalBody>
-          <CardImg top width="100%" src={`data:image/jpeg;base64,${order.productPhoto}`} alt={`Order ${order.photo}`} />
-          <CardText>Discount: {order.productDiscount}</CardText>
+          <CardImg className='card-img' src={`data:image/jpeg;base64,${order.productPhoto}`} alt={`Order ${order.photo}`} />
+          <CardText>Discount: {order.productDiscount}%</CardText>
           <CardText>Price: {order.productPrice}</CardText>
+          <CardText>{order.productDescription}</CardText>
         </ModalBody>
-        <ModalFooter>
+        <ModalFooter className='btn'>
+        <AddToCartBtn product={order} />
         <BuyButton orderId={order.productId} />
-          <Button color="secondary" onClick={toggleModal}>Close</Button>
+          <Button style={{backgroundColor:'red'}} onClick={toggleModal}>Close</Button>
         </ModalFooter>
       </Modal>
     </div>
@@ -52,7 +56,7 @@ const OrdersPage = ({ orders: propOrders }) => {
         <Row xs="1" sm="2" md="3" lg="4">
           {ordersToDisplay && ordersToDisplay.length > 0 ? (
             ordersToDisplay.map((order, index) => (
-              <Col key={index}>
+              <Col key={index} className="orders-col">
                 <OrderCard order={order} />
               </Col>
             ))

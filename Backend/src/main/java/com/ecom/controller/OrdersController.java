@@ -1,5 +1,7 @@
 package com.ecom.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,10 +42,16 @@ public class OrdersController {
 	@PostMapping("/create")
 	public ResponseEntity<Object> createOrder(@RequestBody OrderEntity order) {
 
-		System.out.println(order.getOrderDetails());
-		System.out.println(order.getUserAddress());
-		System.out.println(order.getMethodName());
-		System.out.println(order);
+		/*
+		 * System.out.println(order.getOrderDetails());
+		 * System.out.println(order.getUserAddress());
+		 * System.out.println(order.getMethodName()); System.out.println(order);
+		 */
+		
+		
+		order.setDate(LocalDate.now());
+		
+		System.out.println(" Order Created " + order.getDate());
 		
 	    OrderEntity savedOrder = ordersService.saveOrderDetails(order); 
 	    

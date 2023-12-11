@@ -21,7 +21,7 @@ const UserProfile = () => {
 
   const handleShowCart = () => {
     if (userId) {
-      navigate(`/cart/${userId}`);
+      navigate(`cart/${userId}`);
     } else {
       console.error("userId is undefined");
     } 
@@ -60,6 +60,7 @@ const UserProfile = () => {
               Go Home
             </Button>
           </div>
+          
         </div>
       </div>
     </div>

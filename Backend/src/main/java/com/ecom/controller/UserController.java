@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecom.dto.OrderEntity;
+import com.ecom.entity.Cart;
 import com.ecom.entity.User;
 import com.ecom.service.OrdersService;
 import com.ecom.service.UserService;
@@ -69,6 +70,7 @@ public class UserController {
 	
 	}
 	
+	// http://localhost:8081/shoppinghub//user/getprofiledetails/ 'email'
 	@GetMapping("/user/getprofiledetails/{email}")
 	public ResponseEntity<List<OrderEntity>> getOrders(@PathVariable String email) {
 	    List<OrderEntity> findOrders = ordersService.findOrdersByEmail(email);
@@ -80,5 +82,33 @@ public class UserController {
 	    }
 	}
 	
+	 // http://localhost:8081/shoppinghub/user/cart/add
+	@PostMapping("user/cart/add")
+	public ResponseEntity<Cart> addToUserCart(@RequestBody Cart cart){
+		     
+		     Cart savedToCart = userService.saveToCart(cart);
+		            
+		     if (savedToCart != null) {
+		    	 System.out.println("Order is daved to cart");
+		    	    return new ResponseEntity<>(savedToCart, HttpStatus.OK);
+		    	  } 
+		     else {
+		    	    return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		    	    
+		     }     
+	}
+	
+	// http://localhost:8081/shoppinghub/
+	@GetMapping("user/cart/fetch/{userId}")
+	public ResponseEntity<List<Cart>> getCart(@PathVariable long userId) {
+	    List<Cart> userCart = userService.getUserCart(userId);
+
+	    if (userCart != null && !userCart.isEmpty()) {
+	        System.out.println("User cart fetch successfully.");
+	        return new ResponseEntity<>(userCart, HttpStatus.OK);
+	    } else {
+	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);     }
+	}
+
 	}
 

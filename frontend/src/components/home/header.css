@@ -64,6 +64,9 @@
 .welcome-message {
   margin-right: 10px;
   color: white;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
 }
 
 .nav-link {

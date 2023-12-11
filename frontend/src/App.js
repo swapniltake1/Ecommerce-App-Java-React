@@ -19,6 +19,7 @@ import Success from './components/orders/Success';
 import Fail from './components/orders/Fail';
 import Error from './components/orders/Error';
 import Contact from './components/Developer/Contact';
+import ProgressBar from './components/Dynamic/Progressbar';
 
 
 
@@ -46,7 +47,7 @@ const App = () => {
           setUserPassword
         }}
       >
-
+        <ProgressBar />
         <Routes>
           <>
             <Route path="/" element={<Home />} />
@@ -59,7 +60,7 @@ const App = () => {
             <Route path="user/profile" element={<UserProfile />} />
             <Route path="/shoppinghub/admin/addproduct" element={<AddProduct />} />
             <Route path="/seeallproduct" element={<SeeAllProducts />} />
-            <Route path="/cart/:userId" element={<CartPage />} />
+            <Route path="user/profile/cart/:userId" element={<CartPage />} />
             <Route path="/SearchedOrders" element={<OrdersPage />} />
             <Route path="/discount" element={<DiscountProducts />} />
             <Route path="/payment" element={<PaymentPage />} />

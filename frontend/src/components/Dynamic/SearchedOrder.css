@@ -1,0 +1,51 @@
+
+
+
+@media screen and (max-width: 576px) {
+    .modal-dialog {
+      max-width: 90vw; 
+    }
+  }
+  
+  
+  @media screen and (min-width: 992px) {
+    .modal-dialog {
+      max-width: 75vw;
+    }
+  
+ 
+    .orders-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  
+    .orders-col {
+      flex: 0 0 calc(25% - 30px); 
+      max-width: calc(25% - 30px); 
+      margin: 0 15px;
+      margin-bottom: 30px;
+    }
+
+    .card-img{
+        width: 200px;
+        height: auto;
+    }
+
+    .open-card{
+        align-items: center;
+        text-align: center;
+        width: 500px;
+        height: auto;
+    }
+
+    .btn{
+        text-align: center;
+        align-items: center;
+        padding: 10px;
+        margin-right: 55px;
+    }
+  }
+  
