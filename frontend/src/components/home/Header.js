@@ -78,40 +78,41 @@ const Header = () => {
           </Button>
         </InputGroup>
       </div>
+
+
       <div className="user-options">
       {userName ? (
         <>
+        
           <FaUser className="user-icon" size={20} onClick={handleShowModal} />
           <Link to='/user/profile' className='welcome-message' >{userName}</Link>
 
-          <Navbar expand="md" className="justify-content-end">
-            <Modal show={showModal} style={{maxWidth:'1600px'}} onHide={handleCloseModal}>
+          
+            <Modal show={showModal} onHide={handleCloseModal}>
+
               <Modal.Header closeButton>
-              <Modal.Title className='model-header'>
-                  <div className="user-p">
-                 </div>
-                   <div className="user-name">
-                  {userName}
-                </div>
-               </Modal.Title>
+
+              <Modal.Title className='model-header' >
+                   <div className="user-p"> </div>
+                   <div className="user-name">{userName}</div>
+                </Modal.Title>
+
               </Modal.Header>
+
               <Modal.Body >
               <p> UserId: {userId}</p>
               <p>Email: {userEmail}</p>
               <p>Phone: {userPhone}</p>
 
-            <div className='text-center '>
-            <Button className='btn' style={{padding:'8px', backgroundColor:'greenyellow', marginRight:'5px' }} onClick={handleShowCart}>
-              Show Cart
-            </Button>
-            <Button className='btn' style={{padding:'8px', backgroundColor:'royalblue'}}  onClick={handleLogout}>Log Out</Button>
-          </div>
-
+            <div>
+            <Button className='btn' style={{padding:'8px', backgroundColor:'greenyellow', marginRight:'5px' }} onClick={handleShowCart}>Show Cart </Button>
+              <Button className='btn' style={{padding:'8px', backgroundColor:'royalblue'}}  onClick={handleLogout}>Log Out</Button>
+              </div>
 
               </Modal.Body>
             </Modal>
-          </Navbar>
-            
+        
+          
           </>
         ) : (
           <>
