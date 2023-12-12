@@ -8,7 +8,11 @@ import Header from '../home/Header';
 import Footer from '../home/Footer';
 
 const UserProfile = () => {
-  const {userId, userName, userEmail, userPhone, userPassword } = useContext(UserContext);
+  const {userId, setUserId} = useContext(UserContext);
+  const {userName, setUserName} =useContext(UserContext);
+  const {userEmail, setUserEmail} = useContext(UserContext);
+  const {userPhone, setUserPhone} = useContext(UserContext);
+  const {userPassword, setUserPassword} = useContext(UserContext);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
@@ -17,6 +21,17 @@ const UserProfile = () => {
 
   const handleGoHome = () => {
     navigate('/home');
+  };
+
+  const handleLogout = () => {
+
+    setUserId('');
+    setUserName('');
+    setUserEmail('');
+    setUserPhone('');
+    setUserPassword('');
+    console.log(userId+userName+userEmail+userPhone+userPassword);
+    navigate('/');
   };
 
   const handleShowCart = () => {
@@ -59,6 +74,7 @@ const UserProfile = () => {
             <Button className='btn' variant="primary" onClick={handleGoHome}>
               Go Home
             </Button>
+            <Button className='logout-btn'  onClick={handleLogout}>Log Out</Button>
           </div>
           
         </div>

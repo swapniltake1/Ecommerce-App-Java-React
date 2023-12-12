@@ -1,5 +1,52 @@
 body {
-    font-family: 'roboto', sans-serif;
-    
-    
-  }
+  font-family: 'roboto', sans-serif;
+
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btn:hover::before {
+  transform: translate(-50%, -50%) scale(3);
+  opacity: 0;
+}
+
+
+.btn.futuristic {
+  background: linear-gradient(45deg, #ff00cc, #3333ff);
+  border: 1px solid #fff;
+}
+
+.btn.futuristic:hover {
+  box-shadow: 0 0 20px rgba(254, 2, 2, 0.3);
+}
+
+

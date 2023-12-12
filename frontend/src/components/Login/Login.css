@@ -1,24 +1,36 @@
-
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 80vh;
-  
+
 }
 
 .login-form {
-  margin-right: 550px;
+  margin-right: 400px;
   width: 100%;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
+
+
 }
+
 
 h2 {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.lgn-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.lgn-btn .btn {
+  display: block;
+  margin: 0 auto;
 }
 
 
@@ -27,11 +39,10 @@ h2 {
     margin-top: 40px;
     flex-direction: column;
   }
-  
+
   .login-form {
-    margin: 0; 
-    width: 100%; 
-    height: auto; 
+    margin: 0;
+    width: 100%;
+    height: auto;
   }
 }
-
