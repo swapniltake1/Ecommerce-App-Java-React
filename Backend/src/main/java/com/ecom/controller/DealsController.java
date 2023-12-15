@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecom.entity.Product;
 import com.ecom.service.DealsService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/shoppinghub")
 @CrossOrigin
+@Slf4j
 public class DealsController {
 
 	@Autowired

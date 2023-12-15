@@ -15,9 +15,12 @@ import com.ecom.dto.OrderEntity;
 import com.ecom.service.OrdersService;
 import com.ecom.service.ProductService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/shoppinghub/order")
+@Slf4j
 public class OrdersController {
 
 	@Autowired
@@ -51,12 +54,15 @@ public class OrdersController {
 		
 		order.setDate(LocalDate.now());
 		
-		System.out.println(" Order Created " + order.getDate());
+		log.info("processing user product buy request");
+	//	System.out.println(" Order Created " + order.getDate());
 		
 	    OrderEntity savedOrder = ordersService.saveOrderDetails(order); 
 	    
 	    if (savedOrder != null && savedOrder.getOrderId() > 0) {
-	    	System.out.println(" Order created succesfully....");
+	    	
+	    //	System.out.println(" Order created succesfully....");
+	    	log.info("Order Placed Successfully");
 	    	productService.deleteProductById(order.getOrderDetails().getProductId());
 	    	System.out.println("Product Deleted Successfully from database :: ProductID::"+order.getOrderDetails().getProductId());
 	        return ResponseEntity.ok(savedOrder); 
